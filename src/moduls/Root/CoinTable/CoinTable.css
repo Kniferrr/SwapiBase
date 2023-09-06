@@ -1,0 +1,63 @@
+/* crypto-data.jsx */
+.crypto-data {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.crypto-info {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.crypto-market-cap,
+.crypto-total-volume,
+.crypto-market-cap-percentage {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.crypto-market-cap h3,
+.crypto-total-volume h3,
+.crypto-market-cap-percentage h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.crypto-market-cap ul,
+.crypto-total-volume ul,
+.crypto-market-cap-percentage ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.crypto-market-cap ul li,
+.crypto-total-volume ul li,
+.crypto-market-cap-percentage ul li {
+  margin-bottom: 5px;
+}
+
+.crypto-market-cap-percentage ul li {
+  color: green;
+}
+
+.crypto-market-cap-percentage ul li:first-child {
+  color: red;
+}
+
+.crypto-market-cap-percentage ul li:last-child {
+  color: blue;
+}
