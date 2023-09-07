@@ -7,13 +7,13 @@ import CharacterComponent from "./FilmPageComponents/CharacterComponent";
 import PlanetComponent from "./FilmPageComponents/PlanetComponent";
 import StarshipComponent from "./FilmPageComponents/StarshipComponent";
 import VehicleComponent from "./FilmPageComponents/VehicleComponent";
-import SpeciesComponent from "./FilmPageComponents/Species";
+import SpeciesComponent from "./FilmPageComponents/SpeciesComponent";
 import "./FilmPage.scss";
 
 const FilmPage: React.FC = () => {
   const { filmId } = useParams();
   const { data, isLoading, isError, error } = useQuery<filmDataInterface>(
-    "films",
+    "film",
     () => FetchSwApiFilmById(filmId),
     {
       refetchOnWindowFocus: false,
