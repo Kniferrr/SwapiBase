@@ -22,8 +22,26 @@ export const FetchSwApiFilmById = async (
   id: string | undefined
 ): Promise<filmDataInterface> => {
   try {
-    console.log(id);
     const response = await axios.get(`${SwApiUrl}/films/${id}`);
+
+    if (!response.data) {
+      throw new Error("Пустой ответ от сервера");
+    }
+
+    const data: filmDataInterface = response.data;
+    console.log(data);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const FetchSwApiPeople = async (
+  id: string | undefined
+): Promise<filmDataInterface> => {
+  try {
+    const response = await axios.get(`${id}`);
+    console.log(response);
 
     if (!response.data) {
       throw new Error("Пустой ответ от сервера");
