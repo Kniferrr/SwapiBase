@@ -9,7 +9,7 @@ const initialState: PuzzleState = {
 const usePuzzleStore = create<PuzzleStateActions>()(
   immer((set) => ({
     ...initialState,
-    setFulms: () => set((state: PuzzleState) => {}),
+    setFulms: () => set(() => {}),
   }))
 );
 

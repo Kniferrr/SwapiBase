@@ -1,0 +1,36 @@
+// Основные стили для всей страницы
+.app {
+  background-color: #1e1e1e; // Тёмный фон
+  color: #fff; // Белый текст
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+// Стили для компонента фильма
+.film {
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+}
+
+// Стили для компонента персонажей и других связанных компонентов (планеты, звездолеты, транспортные средства, виды)
+.character,
+.planet,
+.starship,
+.vehicle,
+.species {
+  a {
+    color: #90caf9; // Голубой цвет для ссылок
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline; // Подчёркивание при наведении
+    }
+  }
+}
