@@ -1,4 +1,4 @@
-import { FilmComponentData } from "../../AllFilmsPageInterface";
+import { FilmComponentData } from "../../AllFilmsPage/AllFilmsPageInterface";
 
 const FilmComponent: React.FC<{ data: FilmComponentData }> = ({ data }) => {
   return (

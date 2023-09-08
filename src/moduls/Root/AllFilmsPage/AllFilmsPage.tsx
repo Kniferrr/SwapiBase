@@ -27,8 +27,8 @@ const AllFilmsPage: React.FC = () => {
     <div>
       {data.results.map((film: filmInterface) => {
         return (
-          <a href={`/films/${routCounter}`}>
-            <FilmCard film={film} key={film.episode_id} />
+          <a href={`/films/${routCounter}`} key={film.episode_id}>
+            <FilmCard film={film} />
           </a>
         );
       })}

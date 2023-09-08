@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
-import { filmDataInterface } from "../../AllFilmsPageInterface";
-import { FetchSwApiPeopleById } from "../../../../../Fetch/FetchSwapiData";
+import { filmDataInterface } from "../../AllFilmsPage/AllFilmsPageInterface";
 import "./CharacterComponent.scss";
+import { FetchSwApiPeopleById } from "../../../../Fetch/FetchSwapiData";
 
 const CharacterComponent: React.FC<{ character: string }> = ({ character }) => {
   const regex = /\/(\d+)\/$/;
