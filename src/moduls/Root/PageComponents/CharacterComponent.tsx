@@ -1,18 +1,14 @@
 import { useQuery } from "react-query";
-import { filmDataInterface } from "../../AllFilmsPage/AllFilmsPageInterface";
 import "./CharacterComponent.scss";
-import { FetchSwApiPeopleById } from "../../../../Fetch/FetchSwapiData";
+import { parseIdFromUrl } from "../FilmPage/servises/ParseIdServis";
+import { filmDataInterface } from "../AllFilmsPage/AllFilmsPageInterface";
+import { FetchSwApiById } from "../../../Fetch/FetchSwapiData";
 
 const CharacterComponent: React.FC<{ character: string }> = ({ character }) => {
-  const regex = /\/(\d+)\/$/;
-  const match = regex.exec(character);
-  let id = 0;
-  if (match) {
-    id = parseInt(match[1]);
-  }
+  const id = parseIdFromUrl(character);
   const { data, isLoading, isError, error } = useQuery<filmDataInterface>(
     `people${character}`,
-    () => FetchSwApiPeopleById(id),
+    () => FetchSwApiById(id, "people"),
     {
       refetchOnWindowFocus: false,
     }
@@ -31,7 +27,12 @@ const CharacterComponent: React.FC<{ character: string }> = ({ character }) => {
       <img
         className="character-img"
         src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
-        alt="character img"
+        onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+          const target = e.target as HTMLImageElement;
+          target.src =
+            "https://starwars-visualguide.com/assets/img/placeholder.jpg";
+        }}
+        alt="character-img"
       ></img>
       <h2 className="character-name">{data.name}</h2>
       <p>

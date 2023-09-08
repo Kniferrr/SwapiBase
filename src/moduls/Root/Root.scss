@@ -5,8 +5,9 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  min-height: 100vh; // Устанавливаем минимальную высоту блока как 100% высоты окна
   width: 100%; // Занимаем всю ширину экрана
+  max-width: 100%;
 
   a {
     text-decoration: none;
