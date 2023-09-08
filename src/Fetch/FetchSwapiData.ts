@@ -36,11 +36,11 @@ export const FetchSwApiFilmById = async (
   }
 };
 
-export const FetchSwApiPeople = async (
-  id: string | undefined
+export const FetchSwApiPeopleById = async (
+  id: string | undefined | number
 ): Promise<filmDataInterface> => {
   try {
-    const response = await axios.get(`${id}`);
+    const response = await axios.get(`${SwApiUrl}/people/${id}`);
     console.log(response);
 
     if (!response.data) {
