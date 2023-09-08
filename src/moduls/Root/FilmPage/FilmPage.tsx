@@ -20,7 +20,7 @@ const FilmPage: React.FC = () => {
     }
   );
 
-  if (isLoading || !data) {
+  if (isLoading || !data || !data.species) {
     return <div>Loading...</div>;
   }
 
@@ -36,7 +36,7 @@ const FilmPage: React.FC = () => {
   const speciesLinks: string[] = data.species;
 
   const Vehicles =
-    vehicleLinks.length > 0 ? (
+    vehicleLinks && vehicleLinks.length > 0 ? (
       <>
         <h2>Vehicles:</h2>
         <div className="vehicles">
