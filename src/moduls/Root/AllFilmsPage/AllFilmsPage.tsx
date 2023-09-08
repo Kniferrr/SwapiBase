@@ -15,7 +15,7 @@ const AllFilmsPage: React.FC = () => {
     }
   );
 
-  if (isLoading || !data) {
+  if (isLoading || !data || !data.results) {
     return <div>Loading...</div>;
   }
 
@@ -27,7 +27,7 @@ const AllFilmsPage: React.FC = () => {
     <div>
       {data.results.map((film: filmInterface) => {
         return (
-          <a href={`/films/${routCounter}`} key={film.episode_id}>
+          <a href={`#/films/${routCounter}`} key={film.episode_id}>
             <FilmCard film={film} counter={routCounter++} />
           </a>
         );

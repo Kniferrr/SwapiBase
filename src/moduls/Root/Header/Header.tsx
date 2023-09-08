@@ -6,25 +6,25 @@ function Header() {
       <nav>
         <ul>
           <li>
-            <a href="/SwapiBase">SwapiBase</a>
+            <a href="#/SwapiBase">SwapiBase</a>
           </li>
           <li>
-            <a href="/Films">Films</a>
+            <a href="#/Films">Films</a>
           </li>
           <li>
-            <a href="/People">People</a>
+            <a href="#/People">People</a>
           </li>
           <li>
-            <a href="/Planets">Planets</a>
+            <a href="#/Planets">Planets</a>
           </li>
           <li>
-            <a href="/Species">Species</a>
+            <a href="#/Species">Species</a>
           </li>
           <li>
-            <a href="/Starships">Starships</a>
+            <a href="#/Starships">Starships</a>
           </li>
           <li>
-            <a href="/Vehicles">Vehicles</a>
+            <a href="#/Vehicles">Vehicles</a>
           </li>
         </ul>
       </nav>
