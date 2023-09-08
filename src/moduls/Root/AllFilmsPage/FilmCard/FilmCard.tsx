@@ -1,13 +1,11 @@
 import { FilmCardProps } from "../AllFilmsPageInterface";
 import "./FilmCard.scss";
 
-const FilmCard: React.FC<FilmCardProps> = (props) => {
-  const film = props.film;
-
+const FilmCard: React.FC<FilmCardProps> = ({ film, counter }) => {
   return (
     <div className="film-card">
       <img
-        src={`https://starwars-visualguide.com/assets/img/films/${film.episode_id}.jpg`}
+        src={`https://starwars-visualguide.com/assets/img/films/${counter}.jpg`}
         alt=""
       ></img>
       <h2>{film.title}</h2>

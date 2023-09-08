@@ -28,7 +28,7 @@ const AllFilmsPage: React.FC = () => {
       {data.results.map((film: filmInterface) => {
         return (
           <a href={`/films/${routCounter}`} key={film.episode_id}>
-            <FilmCard film={film} />
+            <FilmCard film={film} counter={routCounter++} />
           </a>
         );
       })}

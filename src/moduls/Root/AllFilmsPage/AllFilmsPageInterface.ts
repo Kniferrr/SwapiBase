@@ -23,6 +23,7 @@ export interface filmDataInterface {
 
 export interface FilmCardProps {
   film: filmInterface;
+  counter: number;
 }
 
 // Тип данных для фильма

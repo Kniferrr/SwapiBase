@@ -1,0 +1,38 @@
+.species {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+  align-items: stretch;
+  min-width: 800px;
+}
+
+.species-info {
+  width: 300px;
+  border: 1px solid #555;
+  padding: 20px;
+  margin: 10px;
+  background-color: #333;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.species-img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  max-height: 300px;
+}
+
+h2.species-name {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 5px;
+}
+
+strong {
+  font-weight: bold;
+}

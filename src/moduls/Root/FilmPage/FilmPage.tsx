@@ -1,20 +1,20 @@
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import FilmComponent from "./FilmPageComponents/FilmComponent";
-import CharacterComponent from "./FilmPageComponents/CharacterComponent";
-import PlanetComponent from "./FilmPageComponents/PlanetComponent";
-import StarshipComponent from "./FilmPageComponents/StarshipComponent";
-import VehicleComponent from "./FilmPageComponents/VehicleComponent";
-import SpeciesComponent from "./FilmPageComponents/SpeciesComponent";
 import "./FilmPage.scss";
 import { filmDataInterface } from "../AllFilmsPage/AllFilmsPageInterface";
-import { FetchSwApiFilmById } from "../../../Fetch/FetchSwapiData";
+import { FetchSwApiById } from "../../../Fetch/FetchSwapiData";
+import FilmComponent from "../PageComponents/FilmComponent";
+import CharacterComponent from "../PageComponents/CharacterComponent";
+import PlanetComponent from "../PageComponents/PlanetComponent";
+import StarshipComponent from "../PageComponents/StarshipComponent";
+import VehicleComponent from "../PageComponents/VehicleComponent";
+import SpeciesComponent from "../PageComponents/SpeciesComponent";
 
 const FilmPage: React.FC = () => {
   const { filmId } = useParams();
   const { data, isLoading, isError, error } = useQuery<filmDataInterface>(
-    "film",
-    () => FetchSwApiFilmById(filmId),
+    "films",
+    () => FetchSwApiById(filmId, "films"),
     {
       refetchOnWindowFocus: false,
     }
@@ -28,12 +28,26 @@ const FilmPage: React.FC = () => {
     return <div>Error: {(error as Error)?.message || "An error occurred"}</div>;
   }
 
-  const filmData: any = data; // Замените на фактические данные фильма из JSON-объекта
-  const characterLinks: string[] = data.characters; // Замените на фактические данные о персонажах из JSON-объекта
-  const planetLinks: string[] = data.planets; // Замените на фактические данные о планетах из JSON-объекта
-  const starshipLinks: string[] = data.starships; // Замените на фактические данные о звездолетах из JSON-объекта
-  const vehicleLinks: string[] = data.vehicles; // Замените на фактические данные о транспортных средствах из JSON-объекта
-  const speciesLinks: string[] = data.species; // Замените на фактические данные о видах из JSON-объекта
+  const filmData: filmDataInterface = data;
+  const characterLinks: string[] = data.characters;
+  const planetLinks: string[] = data.planets;
+  const starshipLinks: string[] = data.starships;
+  const vehicleLinks: string[] = data.vehicles;
+  const speciesLinks: string[] = data.species;
+
+  const Vehicles =
+    vehicleLinks.length > 0 ? (
+      <>
+        <h2>Vehicles:</h2>
+        <div className="vehicles">
+          {vehicleLinks.map((vehicle, index) => (
+            <VehicleComponent key={index} vehicle={vehicle} />
+          ))}
+        </div>
+      </>
+    ) : (
+      <div></div>
+    );
 
   return (
     <>
@@ -58,12 +72,7 @@ const FilmPage: React.FC = () => {
               <StarshipComponent key={index} starship={starship} />
             ))}
           </div>
-          <h2>Vehicles:</h2>
-          <div className="vehicles">
-            {vehicleLinks.map((vehicle, index) => (
-              <VehicleComponent key={index} vehicle={vehicle} />
-            ))}
-          </div>
+          {Vehicles}
           <h2>Species:</h2>
           <div className="species">
             {speciesLinks.map((species, index) => (
