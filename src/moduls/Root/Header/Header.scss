@@ -1,9 +1,11 @@
+/* Основные стили для заголовка */
 .header {
-  background-color: #333; // Цвет фона
-  color: #fff; // Цвет текста
-  padding: 10px 20px; // Поля внутри заголовка
+  background-color: #333; /* Цвет фона */
+  color: #fff; /* Цвет текста */
+  padding: 10px 20px; /* Поля внутри заголовка */
   margin-top: 0;
 
+  /* Стили для навигации */
   nav {
     ul {
       list-style: none;
@@ -17,12 +19,30 @@
 
         a {
           text-decoration: none;
-          color: #fff; // Цвет ссылок
+          color: #fff; /* Цвет ссылок */
           transition: color 0.3s ease-in-out;
 
           &:hover {
-            color: #ff9900; // Цвет ссылок при наведении
+            color: #ff9900; /* Цвет ссылок при наведении */
           }
+        }
+      }
+    }
+  }
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 610px) {
+  .header {
+    padding: 10px; /* Уменьшаем внутренние отступы */
+
+    nav {
+      ul {
+        flex-direction: column; /* Размещаем пункты меню вертикально */
+
+        li {
+          margin-right: 0; /* Убираем правый отступ */
+          margin-bottom: 10px; /* Добавляем отступ между пунктами меню */
         }
       }
     }

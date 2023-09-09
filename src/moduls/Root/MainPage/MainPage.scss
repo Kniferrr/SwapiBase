@@ -1,0 +1,61 @@
+/* MainPage.scss */
+
+.main-page {
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+
+  .header {
+    margin-bottom: 30px;
+
+    h1 {
+      font-size: 48px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  .section-image {
+    max-height: 200px; /* Здесь можно задать желаемую высоту */
+    width: auto;
+  }
+
+  .section-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .section {
+      background-color: #333;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 10px;
+      width: 400px;
+      text-align: center;
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      a {
+        display: block;
+        margin-top: 10px;
+        text-decoration: none;
+        color: #fff; // Изменяем цвет текста ссылки на белый
+        font-size: 18px;
+
+        &:hover {
+          text-decoration: none; // Убираем подчеркивание при наведении
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import "./PlanetComponent.scss";
 import { FetchSwApiById } from "../../../Fetch/FetchSwapiData";
-import { parseIdFromUrl } from "../FilmPage/servises/ParseIdServis";
+import { parseIdFromUrl } from "../../../servises/ParseIdServis";
 import { filmDataInterface } from "../AllFilmsPage/AllFilmsPageInterface";
 
 const PlanetComponent: React.FC<{ planet: string }> = ({ planet }) => {

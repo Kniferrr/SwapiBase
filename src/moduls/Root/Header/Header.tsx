@@ -1,3 +1,4 @@
+import React from "react";
 import "./Header.scss"; // Импорт SCSS стилей
 
 function Header() {
@@ -6,7 +7,7 @@ function Header() {
       <nav>
         <ul>
           <li>
-            <a href="#/SwapiBase">SwapiBase</a>
+            <a href="#/ ">SwapiBase</a>
           </li>
           <li>
             <a href="#/Films">Films</a>
@@ -32,4 +33,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default React.memo(Header);
