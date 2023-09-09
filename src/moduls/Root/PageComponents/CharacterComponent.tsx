@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import "./CharacterComponent.scss";
-import { parseIdFromUrl } from "../FilmPage/servises/ParseIdServis";
+import { parseIdFromUrl } from "../../../servises/ParseIdServis";
 import { filmDataInterface } from "../AllFilmsPage/AllFilmsPageInterface";
 import { FetchSwApiById } from "../../../Fetch/FetchSwapiData";
 

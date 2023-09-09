@@ -19,7 +19,6 @@ const FilmPage: React.FC = () => {
       refetchOnWindowFocus: false,
     }
   );
-
   if (isLoading || !data || !data.species) {
     return <div>Loading...</div>;
   }
