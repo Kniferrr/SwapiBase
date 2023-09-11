@@ -1,0 +1,35 @@
+.paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333; // Цвет фона для тёмной темы
+  color: #fff; // Цвет текста
+  padding: 10px 0; // Отступы сверху и снизу
+  @media (max-width: 768px) {
+    // Медиа-запрос для адаптивности на телефонах
+    flex-direction: column;
+    padding: 10px; // Отступы со всех сторон
+  }
+}
+
+.prev-button,
+.next-button {
+  background-color: #555; // Цвет фона для кнопок
+  color: #fff; // Цвет текста кнопок
+  border: none;
+  padding: 5px 10px;
+  margin: 5px; // Отступы со всех сторон
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.page-info {
+  margin: 10px 0; // Отступы сверху и снизу
+  @media (max-width: 768px) {
+    margin: 10px; // Отступы со всех сторон на телефонах
+  }
+}

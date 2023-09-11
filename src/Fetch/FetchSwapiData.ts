@@ -3,9 +3,15 @@ import { filmDataInterface } from "../moduls/Root/AllFilmsPage/AllFilmsPageInter
 
 const SwApiUrl = "https://swapi.py4e.com/api";
 
-export const FetchSwApiFilm = async (): Promise<filmDataInterface> => {
+export const FetchSwApiPageInfo = async (
+  entity: string,
+  page: number | string | undefined
+): Promise<filmDataInterface> => {
+  if (page == undefined) {
+    page = 1;
+  }
   try {
-    const response = await axios.get(`${SwApiUrl}/films`);
+    const response = await axios.get(`${SwApiUrl}/${entity}/?page=${page}`);
 
     if (!response.data) {
       throw new Error("Пустой ответ от сервера");

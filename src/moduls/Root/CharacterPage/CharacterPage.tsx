@@ -1,20 +1,21 @@
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import "./FilmPage.scss";
+import "./CharacterPage.scss";
 import { filmDataInterface } from "../AllFilmsPage/AllFilmsPageInterface";
-import { FetchSwApiById } from "../../../Fetch/FetchSwapiData";
-import CharacterComponent from "../PageComponents/CharacterComponent";
+import VehicleComponent from "../PageComponents/VehicleComponent";
 import PlanetComponent from "../PageComponents/PlanetComponent";
 import StarshipComponent from "../PageComponents/StarshipComponent";
-import VehicleComponent from "../PageComponents/VehicleComponent";
+import { FetchSwApiById } from "../../../Fetch/FetchSwapiData";
 import SpeciesComponent from "../PageComponents/SpeciesComponent";
-import FilmPageCard from "./FilmPageCard/FilmPageCard";
+import FilmComponent from "../PageComponents/FilmComponent";
+import { Key } from "react";
+import CharacterPageCard from "./CharacterPageCard/CharacterPageCard";
 
-const FilmPage: React.FC = () => {
-  const { filmId } = useParams();
+const CharacterPage: React.FC = () => {
+  const { id } = useParams();
   const { data, isLoading, isError, error } = useQuery<filmDataInterface>(
-    "films",
-    () => FetchSwApiById(filmId, "films"),
+    `people${id}`,
+    () => FetchSwApiById(id, "people"),
     {
       refetchOnWindowFocus: false,
     }
@@ -27,9 +28,8 @@ const FilmPage: React.FC = () => {
     return <div>Error: {(error as Error)?.message || "An error occurred"}</div>;
   }
 
-  const filmData: filmDataInterface = data;
-  const characterLinks: string[] = data.characters;
-  const planetLinks: string[] = data.planets;
+  const films: filmDataInterface = data.films;
+  const planet: string = data.homeworld;
   const starshipLinks: string[] = data.starships;
   const vehicleLinks: string[] = data.vehicles;
   const speciesLinks: string[] = data.species;
@@ -52,18 +52,16 @@ const FilmPage: React.FC = () => {
     <>
       <div>
         <div className="app">
-          <FilmPageCard data={filmData} />
-          <h2>Characters:</h2>
-          <div className="characters">
-            {characterLinks.map((character, index) => (
-              <CharacterComponent key={index} character={character} />
+          <CharacterPageCard data={data} />
+          <h2>Films:</h2>
+          <div className="film">
+            {films.map((film: string, index: Key | null | undefined) => (
+              <FilmComponent key={index} film={film} />
             ))}
           </div>
-          <h2>Planets:</h2>
+          <h2>Planet:</h2>
           <div className="planets">
-            {planetLinks.map((planet, index) => (
-              <PlanetComponent key={index} planet={planet} />
-            ))}
+            <PlanetComponent key={planet} planet={planet} />
           </div>
           <h2>Starships:</h2>
           <div className="starships">
@@ -84,4 +82,4 @@ const FilmPage: React.FC = () => {
   );
 };
 
-export default FilmPage;
+export default CharacterPage;

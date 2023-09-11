@@ -1,6 +1,6 @@
 import React from "react";
 import "./AllFilmsPage.scss";
-import { FetchSwApiFilm } from "../../../Fetch/FetchSwapiData";
+import { FetchSwApiPageInfo } from "../../../Fetch/FetchSwapiData";
 import { useQuery } from "react-query";
 import FilmCard from "./FilmCard/FilmCard";
 import { filmDataInterface, filmInterface } from "./AllFilmsPageInterface";
@@ -9,7 +9,7 @@ const AllFilmsPage: React.FC = () => {
   let routCounter = 1; // кривые id в api
   const { data, isLoading, isError, error } = useQuery<filmDataInterface>(
     "films",
-    FetchSwApiFilm,
+    () => FetchSwApiPageInfo("films", "1"),
     {
       refetchOnWindowFocus: false,
     }
@@ -28,7 +28,7 @@ const AllFilmsPage: React.FC = () => {
       {data.results.map((film: filmInterface) => {
         return (
           <a href={`#/films/${routCounter}`} key={film.episode_id}>
-            <FilmCard film={film} counter={routCounter++} />
+            <FilmCard data={film} counter={routCounter++} />
           </a>
         );
       })}

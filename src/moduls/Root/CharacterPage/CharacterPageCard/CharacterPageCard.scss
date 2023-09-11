@@ -1,0 +1,37 @@
+.character {
+  background-color: #222; /* Цвет фона контейнера */
+  color: #fff; /* Цвет текста */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Тень для контейнера */
+
+  img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 5px;
+    max-width: 80%;
+    margin: auto;
+  }
+
+  // Стили для ссылки на изображение, если оно не загружено
+  img[alt="film img"] {
+    border: 2px solid #ccc;
+  }
+
+  // Стили для заголовка, если название фильма слишком длинное
+  h1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

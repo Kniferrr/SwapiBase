@@ -1,26 +1,51 @@
-import { useParams } from "react-router-dom";
-import { filmDataInterface } from "../AllFilmsPage/AllFilmsPageInterface";
 import "./FilmComponent.scss";
+import { filmDataInterface } from "../AllFilmsPage/AllFilmsPageInterface";
+import { parseIdFromUrl } from "../../../servises/ParseIdServis";
+import { useQuery } from "react-query";
+import { FetchSwApiById } from "../../../Fetch/FetchSwapiData";
 
-const FilmComponent: React.FC<{ data: filmDataInterface }> = ({ data }) => {
-  const { filmId } = useParams();
+const FilmComponent: React.FC<{ film: string }> = ({ film }) => {
+  const id = parseIdFromUrl(film);
+  const { data, isLoading, isError, error } = useQuery<filmDataInterface>(
+    `films${id}`,
+    () => FetchSwApiById(id, "films"),
+    {
+      refetchOnWindowFocus: false,
+    }
+  );
+
+  if (isLoading || !data) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error: {(error as Error)?.message || "An error occurred"}</div>;
+  }
   return (
-    <div className="film">
+    <div className="film-info">
       <img
-        src={`https://starwars-visualguide.com/assets/img/films/${filmId}.jpg`}
-        onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+        className="character-img"
+        src={`https://starwars-visualguide.com/assets/img/films/${id}.jpg`}
+        onError={(e) => {
           const target = e.target as HTMLImageElement;
           target.src =
             "https://starwars-visualguide.com/assets/img/placeholder.jpg";
         }}
         alt="film img"
       ></img>
-      <h1>{data.title}</h1>
-      <p>Episode: {data.episode_id}</p>
-      <p>Director: {data.director}</p>
-      <p>Producer: {data.producer}</p>
-      <p>Release Date: {data.release_date}</p>
-      <p>Opening Crawl: {data.opening_crawl}</p>
+      <h2 className="character-name">{data.title}</h2>
+      <p>
+        <strong>Episode:</strong> {data.episode_id}
+      </p>
+      <p>
+        <strong>Director:</strong> {data.director}
+      </p>
+      <p>
+        <strong>Producer:</strong> {data.producer}
+      </p>
+      <p>
+        <strong>Release Date:</strong> {data.release_date}
+      </p>
     </div>
   );
 };
