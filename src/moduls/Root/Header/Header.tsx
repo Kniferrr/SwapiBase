@@ -10,22 +10,22 @@ function Header() {
             <a href="#/ ">SwapiBase</a>
           </li>
           <li>
-            <a href="#/Films">Films</a>
+            <a href="#/films">Films</a>
           </li>
           <li>
-            <a href="#/People">People</a>
+            <a href="#/characters/page/1">Characters</a>
           </li>
           <li>
-            <a href="#/Planets">Planets</a>
+            <a href="#/planets">Planets</a>
           </li>
           <li>
-            <a href="#/Species">Species</a>
+            <a href="#/species">Species</a>
           </li>
           <li>
-            <a href="#/Starships">Starships</a>
+            <a href="#/starships">Starships</a>
           </li>
           <li>
-            <a href="#/Vehicles">Vehicles</a>
+            <a href="#/vehicles">Vehicles</a>
           </li>
         </ul>
       </nav>

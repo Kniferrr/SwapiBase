@@ -5,6 +5,12 @@ import Header from "../Header/Header";
 import MainPage from "../MainPage/MainPage";
 const FilmPage = React.lazy(() => import("../FilmPage/FilmPage"));
 const AllFilmsPage = React.lazy(() => import("../AllFilmsPage/AllFilmsPage"));
+const AllCharactersPage = React.lazy(
+  () => import("../AllCharactersPage/AllCharactersPage")
+);
+const CharacterPage = React.lazy(
+  () => import("../CharacterPage/CharacterPage")
+);
 
 const router = createHashRouter([
   {
@@ -27,6 +33,26 @@ const router = createHashRouter([
       <>
         <Suspense fallback={<div>Loading...</div>}>
           <FilmPage />
+        </Suspense>
+      </>
+    ),
+  },
+  {
+    path: "characters/page/:page?",
+    element: (
+      <>
+        <Suspense fallback={<div>Loading...</div>}>
+          <AllCharactersPage />
+        </Suspense>
+      </>
+    ),
+  },
+  {
+    path: "characters/:id",
+    element: (
+      <>
+        <Suspense fallback={<div>Loading...</div>}>
+          <CharacterPage />
         </Suspense>
       </>
     ),

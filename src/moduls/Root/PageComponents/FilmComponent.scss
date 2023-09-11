@@ -1,37 +1,47 @@
 .film {
-  background-color: #222; /* Цвет фона контейнера */
-  color: #fff; /* Цвет текста */
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Тень для контейнера */
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+  align-items: stretch;
 
-  img {
-    max-width: 100%;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  @media (max-width: 768px) {
+    /* Адаптивное отображение на телефонах */
+    justify-content: center; /* Центрирование карточек на одной строке */
+  }
+}
+
+.film-info {
+  width: 300px;
+  border: 1px solid #555;
+  padding: 20px;
+  margin: 10px;
+  background-color: #333;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  color: #fff;
+
+  @media (max-width: 768px) {
+    /* Адаптивное отображение на телефонах */
+    width: 100%; /* Занимает всю ширину экрана */
   }
 
-  h1 {
+  .film-img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    max-height: 300px;
+  }
+
+  h2.film-name {
     font-size: 24px;
     margin-bottom: 10px;
   }
 
   p {
-    font-size: 16px;
     margin-bottom: 5px;
-    max-width: 80%;
-    margin: auto;
   }
 
-  // Стили для ссылки на изображение, если оно не загружено
-  img[alt="film img"] {
-    border: 2px solid #ccc;
-  }
-
-  // Стили для заголовка, если название фильма слишком длинное
-  h1 {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  strong {
+    font-weight: bold;
   }
 }
