@@ -1,5 +1,5 @@
 import axios from "axios";
-import { filmDataInterface } from "../moduls/Root/AllFilmsPage/AllFilmsPageInterface";
+import { filmDataInterface } from "../../moduls/Root/interfaces/AllFilmsPageInterface";
 
 const SwApiUrl = "https://swapi.py4e.com/api";
 
@@ -36,7 +36,6 @@ export const FetchSwApiById = async (
     }
 
     const data: filmDataInterface = response.data;
-    console.log(data);
     return data;
   } catch (error) {
     throw error;

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { filmDataInterface } from "../AllFilmsPage/AllFilmsPageInterface";
+import { filmDataInterface } from "../interfaces/AllFilmsPageInterface";
 import "./Paginator.scss";
 
 const Paginator: React.FC<filmDataInterface> = ({ data }) => {
@@ -15,7 +15,7 @@ const Paginator: React.FC<filmDataInterface> = ({ data }) => {
         <button className="prev-button">Prev</button>
       </a>
       <span className="page-info">
-        Страница {page} из {totalPages}
+        Page {page} of {totalPages}
       </span>
       <a href={"#/characters/page/" + String(nextPage)}>
         <button className="next-button">Next</button>

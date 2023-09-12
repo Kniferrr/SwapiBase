@@ -1,4 +1,4 @@
-import { FilmCardProps } from "../../AllFilmsPage/AllFilmsPageInterface";
+import { FilmCardProps } from "../../interfaces/AllFilmsPageInterface";
 import "./CharactersCard.scss";
 import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
 
