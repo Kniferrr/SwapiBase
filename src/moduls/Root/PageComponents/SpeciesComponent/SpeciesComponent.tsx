@@ -1,8 +1,8 @@
 import { useQuery } from "react-query";
 import "./SpeciesComponent.scss";
-import { parseIdFromUrl } from "../../../servises/ParseIdServis";
-import { filmDataInterface } from "../AllFilmsPage/AllFilmsPageInterface";
-import { FetchSwApiById } from "../../../Fetch/FetchSwapiData";
+import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
+import { filmDataInterface } from "../../AllFilmsPage/AllFilmsPageInterface";
+import { FetchSwApiById } from "../../../../Fetch/FetchSwapiData";
 
 const SpeciesComponent: React.FC<{ species: string }> = ({ species }) => {
   const id = parseIdFromUrl(species);

@@ -1,8 +1,8 @@
 import { useQuery } from "react-query";
 import "./VehicleComponent.scss";
-import { filmDataInterface } from "../AllFilmsPage/AllFilmsPageInterface";
-import { parseIdFromUrl } from "../../../servises/ParseIdServis";
-import { FetchSwApiById } from "../../../Fetch/FetchSwapiData";
+import { filmDataInterface } from "../../AllFilmsPage/AllFilmsPageInterface";
+import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
+import { FetchSwApiById } from "../../../../Fetch/FetchSwapiData";
 
 const VehicleComponent: React.FC<{ vehicle: string }> = ({ vehicle }) => {
   const id = parseIdFromUrl(vehicle);

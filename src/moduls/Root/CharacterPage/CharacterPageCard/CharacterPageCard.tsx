@@ -13,7 +13,7 @@ const CharacterPageCard: React.FC<{ data: filmDataInterface }> = ({ data }) => {
           target.src =
             "https://starwars-visualguide.com/assets/img/placeholder.jpg";
         }}
-        alt="film img"
+        alt="character img"
       ></img>
       <h1>{data.name}</h1>
       <p>height: {data.height}</p>
