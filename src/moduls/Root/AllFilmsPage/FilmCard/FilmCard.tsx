@@ -3,7 +3,7 @@ import "./FilmCard.scss";
 
 const FilmCard: React.FC<FilmCardProps> = ({ data, counter }) => {
   return (
-    <div className="film-card">
+    <div className="character-card">
       <img
         src={`https://starwars-visualguide.com/assets/img/films/${counter}.jpg`}
         alt=""

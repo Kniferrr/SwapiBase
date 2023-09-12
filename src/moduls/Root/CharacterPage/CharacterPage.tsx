@@ -2,12 +2,12 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import "./CharacterPage.scss";
 import { filmDataInterface } from "../AllFilmsPage/AllFilmsPageInterface";
-import VehicleComponent from "../PageComponents/VehicleComponent";
-import PlanetComponent from "../PageComponents/PlanetComponent";
-import StarshipComponent from "../PageComponents/StarshipComponent";
+import VehicleComponent from "../PageComponents/VehicleComponent/VehicleComponent";
+import PlanetComponent from "../PageComponents/PlanetComponent/PlanetComponent";
+import StarshipComponent from "../PageComponents/StarshipComponent/StarshipComponent";
 import { FetchSwApiById } from "../../../Fetch/FetchSwapiData";
-import SpeciesComponent from "../PageComponents/SpeciesComponent";
-import FilmComponent from "../PageComponents/FilmComponent";
+import SpeciesComponent from "../PageComponents/SpeciesComponent/SpeciesComponent";
+import FilmComponent from "../PageComponents/FilmComponent/FilmComponent";
 import { Key } from "react";
 import CharacterPageCard from "./CharacterPageCard/CharacterPageCard";
 
@@ -51,31 +51,29 @@ const CharacterPage: React.FC = () => {
   return (
     <>
       <div>
-        <div className="app">
-          <CharacterPageCard data={data} />
-          <h2>Films:</h2>
-          <div className="film">
-            {films.map((film: string, index: Key | null | undefined) => (
-              <FilmComponent key={index} film={film} />
-            ))}
-          </div>
-          <h2>Planet:</h2>
-          <div className="planets">
-            <PlanetComponent key={planet} planet={planet} />
-          </div>
-          <h2>Starships:</h2>
-          <div className="starships">
-            {starshipLinks.map((starship, index) => (
-              <StarshipComponent key={index} starship={starship} />
-            ))}
-          </div>
-          {Vehicles}
-          <h2>Species:</h2>
-          <div className="species">
-            {speciesLinks.map((species, index) => (
-              <SpeciesComponent key={index} species={species} />
-            ))}
-          </div>
+        <CharacterPageCard data={data} />
+        <h2>Films:</h2>
+        <div className="film">
+          {films.map((film: string, index: Key | null | undefined) => (
+            <FilmComponent key={index} film={film} />
+          ))}
+        </div>
+        <h2>Planet:</h2>
+        <div className="planets">
+          <PlanetComponent key={planet} planet={planet} />
+        </div>
+        <h2>Starships:</h2>
+        <div className="starships">
+          {starshipLinks.map((starship, index) => (
+            <StarshipComponent key={index} starship={starship} />
+          ))}
+        </div>
+        {Vehicles}
+        <h2>Species:</h2>
+        <div className="species">
+          {speciesLinks.map((species, index) => (
+            <SpeciesComponent key={index} species={species} />
+          ))}
         </div>
       </div>
     </>

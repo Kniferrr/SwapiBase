@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import "./FilmPage.scss";
 import { filmDataInterface } from "../AllFilmsPage/AllFilmsPageInterface";
 import { FetchSwApiById } from "../../../Fetch/FetchSwapiData";
-import CharacterComponent from "../PageComponents/CharacterComponent";
-import PlanetComponent from "../PageComponents/PlanetComponent";
-import StarshipComponent from "../PageComponents/StarshipComponent";
-import VehicleComponent from "../PageComponents/VehicleComponent";
-import SpeciesComponent from "../PageComponents/SpeciesComponent";
+import CharacterComponent from "../PageComponents/CharacterComponent/CharacterComponent";
+import PlanetComponent from "../PageComponents/PlanetComponent/PlanetComponent";
+import StarshipComponent from "../PageComponents/StarshipComponent/StarshipComponent";
+import VehicleComponent from "../PageComponents/VehicleComponent/VehicleComponent";
+import SpeciesComponent from "../PageComponents/SpeciesComponent/SpeciesComponent";
 import FilmPageCard from "./FilmPageCard/FilmPageCard";
 
 const FilmPage: React.FC = () => {

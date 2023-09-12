@@ -1,8 +1,8 @@
 import "./FilmComponent.scss";
-import { filmDataInterface } from "../AllFilmsPage/AllFilmsPageInterface";
-import { parseIdFromUrl } from "../../../servises/ParseIdServis";
+import { filmDataInterface } from "../../AllFilmsPage/AllFilmsPageInterface";
+import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
 import { useQuery } from "react-query";
-import { FetchSwApiById } from "../../../Fetch/FetchSwapiData";
+import { FetchSwApiById } from "../../../../Fetch/FetchSwapiData";
 
 const FilmComponent: React.FC<{ film: string }> = ({ film }) => {
   const id = parseIdFromUrl(film);
