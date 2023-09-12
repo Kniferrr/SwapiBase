@@ -3,6 +3,7 @@ import "./Root.scss";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import Header from "../Header/Header";
 import MainPage from "../MainPage/MainPage";
+import LoadingComponent from "../LoadingComponent/LoadingComponent";
 const FilmPage = React.lazy(() => import("../FilmPage/FilmPage"));
 const AllFilmsPage = React.lazy(() => import("../AllFilmsPage/AllFilmsPage"));
 const AllCharactersPage = React.lazy(
@@ -21,7 +22,13 @@ const router = createHashRouter([
     path: "films/",
     element: (
       <>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <div>
+              <LoadingComponent />
+            </div>
+          }
+        >
           <AllFilmsPage />
         </Suspense>
       </>
@@ -31,7 +38,13 @@ const router = createHashRouter([
     path: "films/:filmId",
     element: (
       <>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <div>
+              <LoadingComponent />
+            </div>
+          }
+        >
           <FilmPage />
         </Suspense>
       </>
@@ -41,7 +54,13 @@ const router = createHashRouter([
     path: "characters/page/:page?",
     element: (
       <>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <div>
+              <LoadingComponent />
+            </div>
+          }
+        >
           <AllCharactersPage />
         </Suspense>
       </>
@@ -51,7 +70,13 @@ const router = createHashRouter([
     path: "characters/:id",
     element: (
       <>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <div>
+              <LoadingComponent />
+            </div>
+          }
+        >
           <CharacterPage />
         </Suspense>
       </>

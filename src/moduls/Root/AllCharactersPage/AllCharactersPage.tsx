@@ -1,13 +1,14 @@
 import React from "react";
-import { FetchSwApiPageInfo } from "../../../Fetch/FetchSwapiData";
 import { useQuery } from "react-query";
 import {
   filmDataInterface,
   filmInterface,
-} from "../AllFilmsPage/AllFilmsPageInterface";
+} from "../interfaces/AllFilmsPageInterface";
 import CharacterCard from "./CharactersCard/CharactersCard";
 import { useParams } from "react-router-dom";
 import Paginator from "../Paginator/Paginator";
+import { FetchSwApiPageInfo } from "../../../servises/Fetch/FetchSwapiData";
+import LoadingComponent from "../LoadingComponent/LoadingComponent";
 
 const AllCharactersPage: React.FC = () => {
   let { page } = useParams();
@@ -20,7 +21,11 @@ const AllCharactersPage: React.FC = () => {
   );
 
   if (isLoading || !data || !data.results) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <LoadingComponent />
+      </div>
+    );
   }
 
   if (isError) {

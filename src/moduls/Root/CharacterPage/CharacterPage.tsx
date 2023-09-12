@@ -1,15 +1,15 @@
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import "./CharacterPage.scss";
-import { filmDataInterface } from "../AllFilmsPage/AllFilmsPageInterface";
+import { filmDataInterface } from "../interfaces/AllFilmsPageInterface";
 import VehicleComponent from "../PageComponents/VehicleComponent/VehicleComponent";
 import PlanetComponent from "../PageComponents/PlanetComponent/PlanetComponent";
 import StarshipComponent from "../PageComponents/StarshipComponent/StarshipComponent";
-import { FetchSwApiById } from "../../../Fetch/FetchSwapiData";
 import SpeciesComponent from "../PageComponents/SpeciesComponent/SpeciesComponent";
 import FilmComponent from "../PageComponents/FilmComponent/FilmComponent";
 import { Key } from "react";
 import CharacterPageCard from "./CharacterPageCard/CharacterPageCard";
+import { FetchSwApiById } from "../../../servises/Fetch/FetchSwapiData";
 
 const CharacterPage: React.FC = () => {
   const { id } = useParams();

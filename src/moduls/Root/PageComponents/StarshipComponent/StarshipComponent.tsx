@@ -1,8 +1,8 @@
 import { useQuery } from "react-query";
 import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
-import { filmDataInterface } from "../../AllFilmsPage/AllFilmsPageInterface";
-import { FetchSwApiById } from "../../../../Fetch/FetchSwapiData";
+import { filmDataInterface } from "../../interfaces/AllFilmsPageInterface";
 import "./StarshipComponent.scss";
+import { FetchSwApiById } from "../../../../servises/Fetch/FetchSwapiData";
 
 const StarshipComponent: React.FC<{ starship: string }> = ({ starship }) => {
   const id = parseIdFromUrl(starship);

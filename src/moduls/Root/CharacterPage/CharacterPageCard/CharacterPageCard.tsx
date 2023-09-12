@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { filmDataInterface } from "../../AllFilmsPage/AllFilmsPageInterface";
+import { filmDataInterface } from "../../interfaces/AllFilmsPageInterface";
 import "./CharacterPageCard.scss";
 
 const CharacterPageCard: React.FC<{ data: filmDataInterface }> = ({ data }) => {

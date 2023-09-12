@@ -1,4 +1,4 @@
-import { FilmCardProps } from "../AllFilmsPageInterface";
+import { FilmCardProps } from "../../interfaces/AllFilmsPageInterface";
 import "./FilmCard.scss";
 
 const FilmCard: React.FC<FilmCardProps> = ({ data, counter }) => {

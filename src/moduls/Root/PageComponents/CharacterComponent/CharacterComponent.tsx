@@ -1,8 +1,8 @@
 import { useQuery } from "react-query";
 import "./CharacterComponent.scss";
 import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
-import { filmDataInterface } from "../../AllFilmsPage/AllFilmsPageInterface";
-import { FetchSwApiById } from "../../../../Fetch/FetchSwapiData";
+import { filmDataInterface } from "../../interfaces/AllFilmsPageInterface";
+import { FetchSwApiById } from "../../../../servises/Fetch/FetchSwapiData";
 
 const CharacterComponent: React.FC<{ character: string }> = ({ character }) => {
   const id = parseIdFromUrl(character);

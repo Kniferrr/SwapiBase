@@ -1,9 +1,12 @@
 import React from "react";
 import "./AllFilmsPage.scss";
-import { FetchSwApiPageInfo } from "../../../Fetch/FetchSwapiData";
 import { useQuery } from "react-query";
 import FilmCard from "./FilmCard/FilmCard";
-import { filmDataInterface, filmInterface } from "./AllFilmsPageInterface";
+import {
+  filmDataInterface,
+  filmInterface,
+} from "../interfaces/AllFilmsPageInterface";
+import { FetchSwApiPageInfo } from "../../../servises/Fetch/FetchSwapiData";
 
 const AllFilmsPage: React.FC = () => {
   let routCounter = 1; // кривые id в api
