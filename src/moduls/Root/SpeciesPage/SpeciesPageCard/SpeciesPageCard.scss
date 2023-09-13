@@ -1,11 +1,9 @@
 .character {
-  background-color: #222;
+  background-color: #222; /* Цвет фона контейнера */
   color: #fff; /* Цвет текста */
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Тень для контейнера */
-  width: auto;
-  margin: 10px;
 
   img {
     max-height: 300px;

@@ -14,9 +14,11 @@ describe("CharacterComponent.test", () => {
       </QueryClientProvider>
     );
     await waitFor(async () => {
-      const name = await screen.getByText("Tatooine");
-      const img = await screen.findAllByRole("img");
+      const name = screen.getByText("Tatooine");
       expect(name).toBeInTheDocument();
+    });
+    await waitFor(async () => {
+      const img = await screen.findAllByRole("img");
       expect(img.length).toBeGreaterThan(0);
     });
   });

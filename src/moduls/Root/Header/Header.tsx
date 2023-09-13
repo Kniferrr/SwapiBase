@@ -10,7 +10,7 @@ function Header() {
             <a href="#/ ">SwapiBase</a>
           </li>
           <li>
-            <a href="#/films">Films</a>
+            <a href="#/films/page/1">Films</a>
           </li>
           <li>
             <a href="#/characters/page/1">Characters</a>
@@ -19,7 +19,7 @@ function Header() {
             <a href="#/planets/page/1">Planets</a>
           </li>
           <li>
-            <a href="#/species">Species</a>
+            <a href="#/species/page/1">Species</a>
           </li>
           <li>
             <a href="#/starships">Starships</a>

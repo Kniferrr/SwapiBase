@@ -8,7 +8,7 @@ describe("CharacterComponent.test", () => {
   test("checking field in the component", async () => {
     const data = await FetchSwApiPageInfo("people", 1);
 
-    render(<Paginator data={data} result={[]} />);
+    render(<Paginator data={data} category={"planets"} />);
     await waitFor(async () => {
       const totalPages = await screen.findAllByText("Next");
       expect(totalPages.length).toBeGreaterThan(0);
