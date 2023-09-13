@@ -1,15 +1,15 @@
 import { FilmCardProps } from "../../interfaces/AllFilmsPageInterface";
-import "./CharactersCard.scss";
+import "./PlanetsCard.scss";
 import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
 
-const CharacterCard: React.FC<FilmCardProps> = ({ data }) => {
+const PlanetsCard: React.FC<FilmCardProps> = ({ data }) => {
   const id = parseIdFromUrl(data.url);
   return (
-    <a href={`#/characters/${id}`}>
+    <a href={`#/planets/${id}`}>
       <div className="film-card">
         <img
           className="planet-img"
-          src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+          src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
           onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
             const target = e.target as HTMLImageElement;
             target.src =
@@ -19,29 +19,32 @@ const CharacterCard: React.FC<FilmCardProps> = ({ data }) => {
         ></img>
         <h2>{data.name}</h2>
         <p>
-          <strong>Height:</strong> {data.height}
+          <strong>Rotation Period:</strong> {data.rotation_period}
         </p>
         <p>
-          <strong>Mass:</strong> {data.mass}
+          <strong>Orbital Period:</strong> {data.orbital_period}
         </p>
         <p>
-          <strong>Hair color:</strong> {data.hair_color}
+          <strong>Diameter:</strong> {data.diameter}
         </p>
         <p>
-          <strong>Skin color:</strong> {data.skin_color}
+          <strong>Climate:</strong> {data.climate}
         </p>
         <p>
-          <strong>Eye color:</strong> {data.eye_color}
+          <strong>Gravity:</strong> {data.gravity}
         </p>
         <p>
-          <strong>Birth year:</strong> {data.birth_year}
+          <strong>Terrain:</strong> {data.terrain}
         </p>
         <p>
-          <strong>Gender:</strong> {data.gender}
+          <strong>Surface Water:</strong> {data.surface_water}
+        </p>
+        <p>
+          <strong>Population:</strong> {data.population}
         </p>
       </div>
     </a>
   );
 };
 
-export default CharacterCard;
+export default PlanetsCard;

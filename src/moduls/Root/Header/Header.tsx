@@ -16,7 +16,7 @@ function Header() {
             <a href="#/characters/page/1">Characters</a>
           </li>
           <li>
-            <a href="#/planets">Planets</a>
+            <a href="#/planets/page/1">Planets</a>
           </li>
           <li>
             <a href="#/species">Species</a>

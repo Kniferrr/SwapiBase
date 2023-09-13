@@ -3,6 +3,7 @@ import "./VehicleComponent.scss";
 import { filmDataInterface } from "../../interfaces/AllFilmsPageInterface";
 import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
 import { FetchSwApiById } from "../../../../servises/Fetch/FetchSwapiData";
+import LoadingComponent from "../../LoadingComponent/LoadingComponent";
 
 const VehicleComponent: React.FC<{ vehicle: string }> = ({ vehicle }) => {
   const id = parseIdFromUrl(vehicle);
@@ -16,7 +17,7 @@ const VehicleComponent: React.FC<{ vehicle: string }> = ({ vehicle }) => {
   );
 
   if (isLoading || !data) {
-    return <div>Loading...</div>;
+    return <LoadingComponent />;
   }
 
   if (isError) {

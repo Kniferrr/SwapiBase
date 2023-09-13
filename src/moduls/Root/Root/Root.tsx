@@ -4,6 +4,8 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import Header from "../Header/Header";
 import MainPage from "../MainPage/MainPage";
 import LoadingComponent from "../LoadingComponent/LoadingComponent";
+import AllPlanetsPage from "../AllPlanetsPage/AllPlanetsPage";
+import PlanetPage from "../PlanetPage/PlanetPage";
 const FilmPage = React.lazy(() => import("../FilmPage/FilmPage"));
 const AllFilmsPage = React.lazy(() => import("../AllFilmsPage/AllFilmsPage"));
 const AllCharactersPage = React.lazy(
@@ -78,6 +80,38 @@ const router = createHashRouter([
           }
         >
           <CharacterPage />
+        </Suspense>
+      </>
+    ),
+  },
+  {
+    path: "/planets/page/:page?",
+    element: (
+      <>
+        <Suspense
+          fallback={
+            <div>
+              <LoadingComponent />
+            </div>
+          }
+        >
+          <AllPlanetsPage />
+        </Suspense>
+      </>
+    ),
+  },
+  {
+    path: "planets/:id",
+    element: (
+      <>
+        <Suspense
+          fallback={
+            <div>
+              <LoadingComponent />
+            </div>
+          }
+        >
+          <PlanetPage />
         </Suspense>
       </>
     ),
