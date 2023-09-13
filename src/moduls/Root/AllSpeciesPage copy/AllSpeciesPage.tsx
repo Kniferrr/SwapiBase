@@ -1,26 +1,31 @@
 import React from "react";
-import "./AllFilmsPage.scss";
 import { useQuery } from "react-query";
-import FilmCard from "./FilmCard/FilmCard";
 import {
   filmDataInterface,
   filmInterface,
 } from "../interfaces/AllFilmsPageInterface";
+import { useParams } from "react-router-dom";
+import Paginator from "../Paginator/Paginator";
 import { FetchSwApiPageInfo } from "../../../servises/Fetch/FetchSwapiData";
 import LoadingComponent from "../LoadingComponent/LoadingComponent";
+import SpeciesCard from "./PlanetsSpeciesCard/SpeciesCard";
 
-const AllFilmsPage: React.FC = () => {
-  let routCounter = 1; // кривые id в api
+const AllSpeciesPage: React.FC = () => {
+  let { page } = useParams();
   const { data, isLoading, isError, error } = useQuery<filmDataInterface>(
-    "films",
-    () => FetchSwApiPageInfo("films", "1"),
+    `species${page}`,
+    () => FetchSwApiPageInfo("species", page),
     {
       refetchOnWindowFocus: false,
     }
   );
 
   if (isLoading || !data || !data.results) {
-    return <LoadingComponent />;
+    return (
+      <div>
+        <LoadingComponent />
+      </div>
+    );
   }
 
   if (isError) {
@@ -28,19 +33,14 @@ const AllFilmsPage: React.FC = () => {
   }
 
   const CreaterFilmsCards = (
-    <>
-      <div>
-        {data.results.map((film: filmInterface) => {
-          return (
-            <a href={`#/films/${routCounter}`} key={film.episode_id}>
-              <FilmCard data={film} counter={routCounter++} />
-            </a>
-          );
-        })}
-      </div>
-    </>
+    <div>
+      {data.results.map((planet: filmInterface) => {
+        return <SpeciesCard data={planet} key={planet.name} />;
+      })}
+      <Paginator data={data} category={"species"} />
+    </div>
   );
   return <>{CreaterFilmsCards}</>;
 };
 
-export default AllFilmsPage;
+export default AllSpeciesPage;
