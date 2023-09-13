@@ -3,6 +3,7 @@ import "./CharacterComponent.scss";
 import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
 import { filmDataInterface } from "../../interfaces/AllFilmsPageInterface";
 import { FetchSwApiById } from "../../../../servises/Fetch/FetchSwapiData";
+import LoadingComponent from "../../LoadingComponent/LoadingComponent";
 
 const CharacterComponent: React.FC<{ character: string }> = ({ character }) => {
   const id = parseIdFromUrl(character);
@@ -15,7 +16,7 @@ const CharacterComponent: React.FC<{ character: string }> = ({ character }) => {
   );
 
   if (isLoading || !data) {
-    return <div>Loading...</div>;
+    return <LoadingComponent />;
   }
 
   if (isError) {

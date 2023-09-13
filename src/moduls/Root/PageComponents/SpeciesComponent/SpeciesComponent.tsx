@@ -3,6 +3,7 @@ import "./SpeciesComponent.scss";
 import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
 import { filmDataInterface } from "../../interfaces/AllFilmsPageInterface";
 import { FetchSwApiById } from "../../../../servises/Fetch/FetchSwapiData";
+import LoadingComponent from "../../LoadingComponent/LoadingComponent";
 
 const SpeciesComponent: React.FC<{ species: string }> = ({ species }) => {
   const id = parseIdFromUrl(species);
@@ -16,7 +17,7 @@ const SpeciesComponent: React.FC<{ species: string }> = ({ species }) => {
   );
 
   if (isLoading || !data) {
-    return <div>Loading...</div>;
+    return <LoadingComponent />;
   }
 
   if (isError) {

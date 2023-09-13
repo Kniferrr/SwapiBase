@@ -4,17 +4,17 @@ import {
   filmDataInterface,
   filmInterface,
 } from "../interfaces/AllFilmsPageInterface";
-import CharacterCard from "./CharactersCard/CharactersCard";
 import { useParams } from "react-router-dom";
 import Paginator from "../Paginator/Paginator";
 import { FetchSwApiPageInfo } from "../../../servises/Fetch/FetchSwapiData";
 import LoadingComponent from "../LoadingComponent/LoadingComponent";
+import PlanetsCard from "./PlanetsPageCard/PlanetsCard";
 
-const AllCharactersPage: React.FC = () => {
+const AllPlanetsPage: React.FC = () => {
   let { page } = useParams();
   const { data, isLoading, isError, error } = useQuery<filmDataInterface>(
-    `people${page}`,
-    () => FetchSwApiPageInfo("people", page),
+    `planets${page}`,
+    () => FetchSwApiPageInfo("planets", page),
     {
       refetchOnWindowFocus: false,
     }
@@ -34,13 +34,13 @@ const AllCharactersPage: React.FC = () => {
 
   const CreaterFilmsCards = (
     <div>
-      {data.results.map((character: filmInterface) => {
-        return <CharacterCard data={character} key={character.name} />;
+      {data.results.map((planet: filmInterface) => {
+        return <PlanetsCard data={planet} key={planet.name} />;
       })}
-      <Paginator data={data} category={"characters"} />
+      <Paginator data={data} category={"planets"} />
     </div>
   );
   return <>{CreaterFilmsCards}</>;
 };
 
-export default AllCharactersPage;
+export default AllPlanetsPage;

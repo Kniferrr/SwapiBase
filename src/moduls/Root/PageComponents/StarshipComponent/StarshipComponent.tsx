@@ -3,6 +3,7 @@ import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
 import { filmDataInterface } from "../../interfaces/AllFilmsPageInterface";
 import "./StarshipComponent.scss";
 import { FetchSwApiById } from "../../../../servises/Fetch/FetchSwapiData";
+import LoadingComponent from "../../LoadingComponent/LoadingComponent";
 
 const StarshipComponent: React.FC<{ starship: string }> = ({ starship }) => {
   const id = parseIdFromUrl(starship);
@@ -16,7 +17,7 @@ const StarshipComponent: React.FC<{ starship: string }> = ({ starship }) => {
   );
 
   if (isLoading || !data) {
-    return <div>Loading...</div>;
+    return <LoadingComponent />;
   }
 
   if (isError) {

@@ -3,6 +3,7 @@ import { filmDataInterface } from "../../interfaces/AllFilmsPageInterface";
 import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
 import { useQuery } from "react-query";
 import { FetchSwApiById } from "../../../../servises/Fetch/FetchSwapiData";
+import LoadingComponent from "../../LoadingComponent/LoadingComponent";
 
 const FilmComponent: React.FC<{ film: string }> = ({ film }) => {
   const id = parseIdFromUrl(film);
@@ -15,7 +16,7 @@ const FilmComponent: React.FC<{ film: string }> = ({ film }) => {
   );
 
   if (isLoading || !data) {
-    return <div>Loading...</div>;
+    return <LoadingComponent />;
   }
 
   if (isError) {

@@ -7,6 +7,7 @@ import {
   filmInterface,
 } from "../interfaces/AllFilmsPageInterface";
 import { FetchSwApiPageInfo } from "../../../servises/Fetch/FetchSwapiData";
+import LoadingComponent from "../LoadingComponent/LoadingComponent";
 
 const AllFilmsPage: React.FC = () => {
   let routCounter = 1; // кривые id в api
@@ -19,7 +20,7 @@ const AllFilmsPage: React.FC = () => {
   );
 
   if (isLoading || !data || !data.results) {
-    return <div>Loading...</div>;
+    return <LoadingComponent />;
   }
 
   if (isError) {

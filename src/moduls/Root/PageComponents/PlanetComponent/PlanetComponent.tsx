@@ -3,6 +3,7 @@ import "./PlanetComponent.scss";
 import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
 import { filmDataInterface } from "../../interfaces/AllFilmsPageInterface";
 import { FetchSwApiById } from "../../../../servises/Fetch/FetchSwapiData";
+import LoadingComponent from "../../LoadingComponent/LoadingComponent";
 
 const PlanetComponent: React.FC<{ planet: string }> = ({ planet }) => {
   const id = parseIdFromUrl(planet);
@@ -16,7 +17,7 @@ const PlanetComponent: React.FC<{ planet: string }> = ({ planet }) => {
   );
 
   if (isLoading || !data) {
-    return <div>Loading...</div>;
+    return <LoadingComponent />;
   }
 
   if (isError) {

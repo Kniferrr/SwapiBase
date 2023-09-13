@@ -10,6 +10,7 @@ import FilmComponent from "../PageComponents/FilmComponent/FilmComponent";
 import { Key } from "react";
 import CharacterPageCard from "./CharacterPageCard/CharacterPageCard";
 import { FetchSwApiById } from "../../../servises/Fetch/FetchSwapiData";
+import LoadingComponent from "../LoadingComponent/LoadingComponent";
 
 const CharacterPage: React.FC = () => {
   const { id } = useParams();
@@ -21,7 +22,7 @@ const CharacterPage: React.FC = () => {
     }
   );
   if (isLoading || !data || !data.species) {
-    return <div>Loading...</div>;
+    return <LoadingComponent />;
   }
 
   if (isError) {
