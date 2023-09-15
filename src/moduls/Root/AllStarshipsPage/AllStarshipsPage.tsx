@@ -8,13 +8,13 @@ import { useParams } from "react-router-dom";
 import Paginator from "../Paginator/Paginator";
 import { FetchSwApiPageInfo } from "../../../servises/Fetch/FetchSwapiData";
 import LoadingComponent from "../LoadingComponent/LoadingComponent";
-import SpeciesCard from "./PlanetsSpeciesCard/SpeciesCard";
+import StarshipsCard from "./StarshipsCard/StarshipsCard";
 
-const AllSpeciesPage: React.FC = () => {
+const AllStarshipsPage: React.FC = () => {
   let { page } = useParams();
   const { data, isLoading, isError, error } = useQuery<filmDataInterface>(
-    `species${page}`,
-    () => FetchSwApiPageInfo("species", page),
+    `starships${page}`,
+    () => FetchSwApiPageInfo("starships", page),
     {
       refetchOnWindowFocus: false,
     }
@@ -35,12 +35,12 @@ const AllSpeciesPage: React.FC = () => {
   const CreaterFilmsCards = (
     <div>
       {data.results.map((planet: filmInterface) => {
-        return <SpeciesCard data={planet} key={planet.name} />;
+        return <StarshipsCard data={planet} key={planet.name} />;
       })}
-      <Paginator data={data} category={"species"} />
+      <Paginator data={data} category={"starships"} />
     </div>
   );
   return <>{CreaterFilmsCards}</>;
 };
 
-export default AllSpeciesPage;
+export default AllStarshipsPage;
