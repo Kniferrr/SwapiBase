@@ -22,10 +22,10 @@ function Header() {
             <a href="#/species/page/1">Species</a>
           </li>
           <li>
-            <a href="#/starships">Starships</a>
+            <a href="#/starships/page/1">Starships</a>
           </li>
           <li>
-            <a href="#/vehicles">Vehicles</a>
+            <a href="#/vehicles/page/1">Vehicles</a>
           </li>
         </ul>
       </nav>
