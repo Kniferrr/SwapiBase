@@ -4,6 +4,7 @@ import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
 import { filmDataInterface } from "../../interfaces/AllFilmsPageInterface";
 import { FetchSwApiById } from "../../../../servises/Fetch/FetchSwapiData";
 import LoadingComponent from "../../LoadingComponent/LoadingComponent";
+import ImgComponent from "../../ImgComponent/ImgComponent";
 
 const PlanetComponent: React.FC<{ planet: string }> = ({ planet }) => {
   const id = parseIdFromUrl(planet);
@@ -28,16 +29,7 @@ const PlanetComponent: React.FC<{ planet: string }> = ({ planet }) => {
     <a href={`#/planets/${id}`}>
       <div className="planet">
         <div className="planet-info">
-          <img
-            className="planet-img"
-            src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
-            onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-              const target = e.target as HTMLImageElement;
-              target.src =
-                "https://starwars-visualguide.com/assets/img/placeholder.jpg";
-            }}
-            alt="planet-img"
-          ></img>
+          <ImgComponent id={id} resource={"planets"} />
           <h2>Planet Information</h2>
           <p>
             <strong>Name:</strong> {data.name}

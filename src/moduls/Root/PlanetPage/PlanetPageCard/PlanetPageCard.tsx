@@ -1,20 +1,14 @@
 import { useParams } from "react-router-dom";
 import { filmDataInterface } from "../../interfaces/AllFilmsPageInterface";
 import "./PlanetPageCard.scss";
+import ImgComponent from "../../ImgComponent/ImgComponent";
 
 const PlanetPageCard: React.FC<{ data: filmDataInterface }> = ({ data }) => {
   const { id } = useParams();
+  const idValue: string = id as string;
   return (
     <div className="character">
-      <img
-        src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
-        onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-          const target = e.target as HTMLImageElement;
-          target.src =
-            "https://starwars-visualguide.com/assets/img/placeholder.jpg";
-        }}
-        alt="character img"
-      ></img>
+      <ImgComponent id={idValue} resource={"planets"} />
       <h1>{data.name}</h1>
       <p>Rotation Period: {data.rotation_period}</p>
       <p>Orbital Period: {data.orbital_period}</p>

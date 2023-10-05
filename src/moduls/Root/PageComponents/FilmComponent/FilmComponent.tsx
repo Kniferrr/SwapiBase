@@ -4,6 +4,7 @@ import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
 import { useQuery } from "react-query";
 import { FetchSwApiById } from "../../../../servises/Fetch/FetchSwapiData";
 import LoadingComponent from "../../LoadingComponent/LoadingComponent";
+import ImgComponent from "../../ImgComponent/ImgComponent";
 
 const FilmComponent: React.FC<{ film: string }> = ({ film }) => {
   const id = parseIdFromUrl(film);
@@ -25,16 +26,7 @@ const FilmComponent: React.FC<{ film: string }> = ({ film }) => {
   return (
     <a href={`#/films/${id}`}>
       <div className="film-info">
-        <img
-          className="character-img"
-          src={`https://starwars-visualguide.com/assets/img/films/${id}.jpg`}
-          onError={(e) => {
-            const target = e.target as HTMLImageElement;
-            target.src =
-              "https://starwars-visualguide.com/assets/img/placeholder.jpg";
-          }}
-          alt="film img"
-        ></img>
+        <ImgComponent id={id} resource={"films"} />
         <h2 className="character-name">{data.title}</h2>
         <p>
           <strong>Episode:</strong> {data.episode_id}

@@ -1,13 +1,12 @@
+import ImgComponent from "../../ImgComponent/ImgComponent";
 import { FilmCardProps } from "../../interfaces/AllFilmsPageInterface";
 import "./FilmCard.scss";
 
 const FilmCard: React.FC<FilmCardProps> = ({ data, counter }) => {
+  const counterValue: number = counter as number;
   return (
     <div className="character-card">
-      <img
-        src={`https://starwars-visualguide.com/assets/img/films/${counter}.jpg`}
-        alt=""
-      ></img>
+      <ImgComponent id={counterValue} resource={"films"} />
       <h2>{data.title}</h2>
       <p>
         <strong>Director:</strong> {data.director}

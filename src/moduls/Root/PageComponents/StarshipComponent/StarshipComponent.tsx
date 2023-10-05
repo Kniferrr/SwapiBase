@@ -4,6 +4,7 @@ import { filmDataInterface } from "../../interfaces/AllFilmsPageInterface";
 import "./StarshipComponent.scss";
 import { FetchSwApiById } from "../../../../servises/Fetch/FetchSwapiData";
 import LoadingComponent from "../../LoadingComponent/LoadingComponent";
+import ImgComponent from "../../ImgComponent/ImgComponent";
 
 const StarshipComponent: React.FC<{ starship: string }> = ({ starship }) => {
   const id = parseIdFromUrl(starship);
@@ -27,16 +28,7 @@ const StarshipComponent: React.FC<{ starship: string }> = ({ starship }) => {
     <a href={`#/starships/${id}`}>
       <div className="starship">
         <div className="starship-info">
-          <img
-            className="starship-img"
-            src={`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`}
-            onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-              const target = e.target as HTMLImageElement;
-              target.src =
-                "https://starwars-visualguide.com/assets/img/placeholder.jpg";
-            }}
-            alt="starship-img"
-          />
+          <ImgComponent id={id} resource={"starships"} />
           <h2>Starship Information</h2>
           <p>
             <strong>Name:</strong> {data.name}

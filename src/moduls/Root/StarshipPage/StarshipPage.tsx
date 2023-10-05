@@ -7,7 +7,7 @@ import { Key } from "react";
 import { FetchSwApiById } from "../../../servises/Fetch/FetchSwapiData";
 import CharacterComponent from "../PageComponents/CharacterComponent/CharacterComponent";
 import LoadingComponent from "../LoadingComponent/LoadingComponent";
-import StarshipPageCard from "./SpeciesPageCard/StarshipPageCard";
+import StarshipPageCard from "./StarshipPageCard/StarshipPageCard";
 
 const StarshipPage: React.FC = () => {
   const { id } = useParams();

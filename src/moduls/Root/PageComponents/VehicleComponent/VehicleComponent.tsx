@@ -4,6 +4,7 @@ import { filmDataInterface } from "../../interfaces/AllFilmsPageInterface";
 import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
 import { FetchSwApiById } from "../../../../servises/Fetch/FetchSwapiData";
 import LoadingComponent from "../../LoadingComponent/LoadingComponent";
+import ImgComponent from "../../ImgComponent/ImgComponent";
 
 const VehicleComponent: React.FC<{ vehicle: string }> = ({ vehicle }) => {
   const id = parseIdFromUrl(vehicle);
@@ -28,16 +29,7 @@ const VehicleComponent: React.FC<{ vehicle: string }> = ({ vehicle }) => {
     <a href={`#/vehicles/${id}`}>
       <div className="vehicle">
         <div className="vehicle-info">
-          <img
-            className="vehicle-img"
-            src={`https://starwars-visualguide.com/assets/img/vehicles/${id}.jpg`}
-            onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-              const target = e.target as HTMLImageElement;
-              target.src =
-                "https://starwars-visualguide.com/assets/img/placeholder.jpg";
-            }}
-            alt="vehicle-img"
-          ></img>
+          <ImgComponent id={id} resource={"vehicles"} />
           <h2>{data.name}</h2>
           <div className="property">
             <span className="label">Model:</span>
