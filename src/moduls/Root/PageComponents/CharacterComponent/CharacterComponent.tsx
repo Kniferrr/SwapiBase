@@ -4,6 +4,7 @@ import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
 import { filmDataInterface } from "../../interfaces/AllFilmsPageInterface";
 import { FetchSwApiById } from "../../../../servises/Fetch/FetchSwapiData";
 import LoadingComponent from "../../LoadingComponent/LoadingComponent";
+import ImgComponent from "../../ImgComponent/ImgComponent";
 
 const CharacterComponent: React.FC<{ character: string }> = ({ character }) => {
   const id = parseIdFromUrl(character);
@@ -26,16 +27,7 @@ const CharacterComponent: React.FC<{ character: string }> = ({ character }) => {
   return (
     <a href={`#/characters/${id}`}>
       <div className="character-info">
-        <img
-          className="character-img"
-          src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
-          onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-            const target = e.target as HTMLImageElement;
-            target.src =
-              "https://starwars-visualguide.com/assets/img/placeholder.jpg";
-          }}
-          alt="character-img"
-        ></img>
+        <ImgComponent id={id} resource={"characters"} />
         <h2 className="character-name">{data.name}</h2>
         <p>
           <strong>Height:</strong> {data.height} cm

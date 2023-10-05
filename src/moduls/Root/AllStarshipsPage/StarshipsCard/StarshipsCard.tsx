@@ -1,22 +1,14 @@
 import { FilmCardProps } from "../../interfaces/AllFilmsPageInterface";
 import "./StarshipsCard.scss";
 import { parseIdFromUrl } from "../../../../servises/ParseIdServis";
+import ImgComponent from "../../ImgComponent/ImgComponent";
 
 const StarshipsCard: React.FC<FilmCardProps> = ({ data }) => {
   const id = parseIdFromUrl(data.url);
   return (
     <a href={`#/starships/${id}`}>
       <div className="film-card">
-        <img
-          className="planet-img"
-          src={`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`}
-          onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-            const target = e.target as HTMLImageElement;
-            target.src =
-              "https://starwars-visualguide.com/assets/img/placeholder.jpg";
-          }}
-          alt="planet-img"
-        ></img>
+        <ImgComponent id={id} resource={"starships"} />
         <h2>{data.name}</h2>
         <p>
           <strong>Model:</strong> {data.model}

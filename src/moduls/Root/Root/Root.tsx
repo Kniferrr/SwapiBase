@@ -9,8 +9,9 @@ import PlanetPage from "../PlanetPage/PlanetPage";
 import AllSpeciesPage from "../AllSpeciesPage/AllSpeciesPage";
 import SpeciesPage from "../SpeciesPage/SpeciesPage";
 import AllStarshipsPage from "../AllStarshipsPage/AllStarshipsPage";
-import StarshipPage from "../StarshipPage copy/StarshipPage";
+import StarshipPage from "../StarshipPage/StarshipPage";
 import AllVehiclesPage from "../AllVehiclesPage/AllVehiclesPage";
+import VehiclesPage from "../VehiclesPage/VehiclesPage";
 const FilmPage = React.lazy(() => import("../FilmPage/FilmPage"));
 const AllFilmsPage = React.lazy(() => import("../AllFilmsPage/AllFilmsPage"));
 const AllCharactersPage = React.lazy(
@@ -23,7 +24,19 @@ const CharacterPage = React.lazy(
 const router = createHashRouter([
   {
     path: "/",
-    element: <MainPage />,
+    element: (
+      <>
+        <Suspense
+          fallback={
+            <div>
+              <LoadingComponent />
+            </div>
+          }
+        >
+          <MainPage />
+        </Suspense>
+      </>
+    ),
   },
   {
     path: "films/page/:page?",
@@ -212,7 +225,7 @@ const router = createHashRouter([
             </div>
           }
         >
-          <StarshipPage />
+          <VehiclesPage />
         </Suspense>
       </>
     ),

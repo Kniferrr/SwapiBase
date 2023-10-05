@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import Paginator from "../Paginator/Paginator";
 import { FetchSwApiPageInfo } from "../../../servises/Fetch/FetchSwapiData";
 import LoadingComponent from "../LoadingComponent/LoadingComponent";
-import VehiclesCard from "./VehiclesCard/StarshipsCard";
+import VehiclesCard from "./VehiclesCard/VehiclesCard";
 
 const AllVehiclesPage: React.FC = () => {
   let { page } = useParams();
